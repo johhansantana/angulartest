@@ -3,16 +3,17 @@ angular.module('Eggly', [
 ])
 
 .controller('MainCtrl', function($scope) {
-	$scope.hello = 'hello world';
+	var self = this;
+	self.hello = 'hello world';
 
-	$scope.categories = [
+	self.categories = [
 		{"id": 0, "name": "Development"},
 		{"id": 1, "name": "Design"},
 		{"id": 2, "name": "Exercise"},
 		{"id": 3, "name": "Humor"}
 	];
 
-	$scope.bookmarks = [
+	self.bookmarks = [
 		{"id": 0, "title": "AngularJS", "url": "http://angularjs.org", "category": "Development"},
 		{"id": 1, "title": "Egghead.io", "url": "http://angularjs.org", "category": "Development"},
 		{"id": 2, "title": "A list apart", "url": "http://angularjs.org", "category": "Design"},
@@ -30,6 +31,11 @@ angular.module('Eggly', [
 		$scope.currentCategory = category;
 	}
 
+	function isCurrentCategory(category) {
+		return $scope.currentCategory !== null && category.name === $scope.currentCategory.name;
+	}
+
 	// makes public the function
 	$scope.setCurrentCategory = setCurrentCategory;
+	$scope.isCurrentCategory = isCurrentCategory;
 });
