@@ -22,5 +22,14 @@ angular.module('Eggly', [
 		{"id": 6, "title": "Senor gif", "url": "http://angularjs.org", "category": "Humor"},
 		{"id": 7, "title": "Wimp", "url": "http://angularjs.org", "category": "Humor"},
 		{"id": 8, "title": "Dump", "url": "http://angularjs.org", "category": "Humor"},
-	]
+	];
+
+	$scope.currentCategory = null;
+
+	function setCurrentCategory(category) {
+		$scope.currentCategory = category;
+	}
+
+	// makes public the function
+	$scope.setCurrentCategory = setCurrentCategory;
 });
